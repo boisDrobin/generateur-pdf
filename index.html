@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Générateur local de fiches de formation A4">
+  <title>Générateur PDF — Céphalées</title>
+    <link rel="stylesheet" href="css/app.css?v=2.6">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <script src="js/templates.js?v=2.6" defer></script>
+  <script src="js/storage.js?v=2.6" defer></script>
+  <script src="js/app.js?v=2.6" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="control-panel" aria-label="Paramètres du document">
+      <header class="control-header">
+        <p class="eyebrow">Générateur PDF</p>
+        <h1>Fiche de formation</h1>
+        <p>Modifiez uniquement les données prévues. La mise en page reste verrouillée.</p>
+      </header>
+
+      <div class="template-picker">
+        <label for="template-select">Gabarit sélectionné</label>
+        <select id="template-select" aria-label="Gabarit sélectionné"></select>
+      </div>
+
+      <form id="template-form" class="template-form" autocomplete="off"></form>
+
+      <div class="control-actions">
+        <button id="reset-button" class="button button-secondary" type="button">Réinitialiser</button>
+        <p id="save-status" class="save-status" role="status" aria-live="polite">Données originales</p>
+      </div>
+    </aside>
+
+    <section class="preview-column" aria-label="Aperçu du document">
+      <header class="preview-toolbar">
+        <div>
+          <p class="eyebrow">Aperçu en direct</p>
+          <h2>Page A4 — portrait</h2>
+        </div>
+        <div class="preview-actions">
+          <span id="layout-status" class="layout-status">1 page A4</span>
+          <button id="print-button" class="button button-primary" type="button">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-3M7 13h10v8H7z"/></svg>
+            Exporter en PDF
+          </button>
+        </div>
+      </header>
+
+      <div id="preview-canvas" class="preview-canvas">
+        <div id="paper-shell" class="paper-shell">
+          <article id="document-a4" class="document-a4" aria-label="Fiche Céphalées au format A4">
+            <header class="document-masthead">
+              <img class="masthead-medical-logo" src="assets/logos/logo-medical-s.png" alt="Logo Medical-S">
+              <div class="dpc-identity">
+                <img class="dpc-logo-image" src="assets/logos/logo-odpc.png" alt="Logo officiel ODPC">
+                <span class="sr-only" data-text="dpc.number"></span>
+                <span class="sr-only" data-text="dpc.agencyLine"></span>
+                <span class="sr-only"><span data-text="dpc.offerLine"></span> <span data-text="dpc.website"></span></span>
+              </div>
+            </header>
+
+            <section class="hero-layout">
+              <div class="hero-image-frame">
+                <img src="assets/images/couverture-cephalees.jpg" alt="">
+              </div>
+              <p class="hero-kicker" data-text="masthead"></p>
+
+              <div class="hero-copy">
+                <p class="dpc-reference"><strong>Référence DPC :</strong> <span data-computed="dpcReference"></span></p>
+                <h1 data-text="course.title"></h1>
+
+                <div class="objective-block">
+                  <img class="objective-icon doc-icon doc-icon-orange" src="assets/icons/target.svg" alt="" aria-hidden="true">
+                  <span class="objective-rule" aria-hidden="true"></span>
+                  <div>
+                    <h2>OBJECTIF</h2>
+                    <p data-text="course.objective"></p>
+                  </div>
+                </div>
+
+                <div class="welcome-banner">
+                  <img class="doc-icon doc-icon-orange" src="assets/icons/cocktail.svg" alt="" aria-hidden="true">
+                  <p data-text="course.welcome"></p>
+                </div>
+              </div>
+            </section>
+
+            <section class="event-card">
+              <div class="practical-grid">
+                <div class="practical-item date-item">
+                  <span class="practical-icon-shell"><img class="doc-icon doc-icon-navy" src="assets/icons/calendar.svg" alt="" aria-hidden="true"></span>
+                  <time class="date-primary">
+                    <span class="date-weekday" data-date-part="weekday"></span>
+                    <span class="date-number" data-date-part="day"></span>
+                  </time>
+                  <time class="date-secondary">
+                    <span data-date-part="month"></span>
+                    <span data-date-part="year"></span>
+                  </time>
+                  <span class="sr-only" data-text="event.date"></span>
+                </div>
+
+                <div class="practical-item time-item">
+                  <span class="practical-icon-shell"><img class="doc-icon doc-icon-navy" src="assets/icons/clock.svg" alt="" aria-hidden="true"></span>
+                  <h2>HORAIRES</h2>
+                  <p data-text="event.time"></p>
+                </div>
+
+                <div class="practical-item compensation-item">
+                  <span class="practical-icon-shell"><img class="doc-icon doc-icon-navy" src="assets/icons/euro-currency-symbol.svg" alt="" aria-hidden="true"></span>
+                  <h2>INDEMNISATION</h2>
+                  <p class="compensation-value"><span data-text="event.compensation"></span><sup>*</sup></p>
+                  <p class="compensation-note" data-text="event.compensationNote"></p>
+                </div>
+
+                <div class="practical-item place-item">
+                  <span class="practical-icon-shell"><img class="doc-icon doc-icon-navy" src="assets/icons/placeholder.svg" alt="" aria-hidden="true"></span>
+                  <h2 data-text="event.venue"></h2>
+                  <p data-text="event.address"></p>
+                </div>
+              </div>
+
+              <div class="speaker-band">
+                <span class="speaker-icon-shell"><img class="doc-icon doc-icon-white" src="assets/icons/people.svg" alt="" aria-hidden="true"></span>
+                <div>
+                  <p class="speaker-intro" data-text="speaker.intro"></p>
+                  <strong data-text="speaker.name"></strong>
+                  <span data-text="speaker.role"></span>
+                </div>
+              </div>
+            </section>
+
+            <section class="course-columns">
+              <div class="content-panel program-column">
+                <h2 class="panel-heading panel-heading-navy">
+                  <img class="doc-icon doc-icon-white" src="assets/icons/book.svg" alt="" aria-hidden="true">
+                  <span data-text="program.heading"></span>
+                </h2>
+                <div class="panel-body program-body">
+                  <div class="content-group">
+                    <h3 data-text="program.analysisHeading"></h3>
+                    <ul data-list="program.analysisItems"></ul>
+                  </div>
+                  <div class="content-group">
+                    <h3 data-text="program.conductHeading"></h3>
+                    <ul data-list="program.conductItems"></ul>
+                  </div>
+                  <div class="content-group">
+                    <h3 data-text="program.primaryHeading"></h3>
+                    <ul data-list="program.primaryItems"></ul>
+                  </div>
+                  <div class="content-group content-group-last">
+                    <h3 data-text="program.secondaryHeading"></h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-panel schedule-column">
+                <h2 class="panel-heading panel-heading-orange">
+                  <img class="doc-icon doc-icon-white" src="assets/icons/value-chain.svg" alt="" aria-hidden="true">
+                  <span data-text="schedule.heading"></span>
+                </h2>
+                <div class="panel-body schedule-body">
+                  <ol class="schedule-list">
+                    <li><span data-text="schedule.selfAssessment"></span></li>
+                    <li><span data-text="schedule.meeting"></span></li>
+                    <li>
+                      <span data-text="schedule.eppIntro"></span>
+                      <ul data-list="schedule.eppItems"></ul>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+
+            <section class="lower-grid">
+              <div class="content-panel registration-box">
+                <header class="panel-heading panel-heading-navy">
+                  <img class="doc-icon doc-icon-white" src="assets/icons/edit-button.svg" alt="" aria-hidden="true">
+                  <h2 data-text="registration.heading"></h2>
+                </header>
+                <div class="registration-copy">
+                  <p><span data-text="registration.accountLabel"></span> : <a data-link="registration.accountUrl" data-text="registration.accountUrl"></a></p>
+                  <p class="registration-emphasis" data-text="registration.searchInstruction"></p>
+                  <p><strong data-text="registration.actionIntro"></strong> <span class="registration-reference" data-text="event.actionReference"></span> <span data-text="registration.actionAfterReference"></span></p>
+                  <p class="registration-details" data-text="registration.detailsInstruction"></p>
+                  <p><strong data-text="registration.sessionLead"></strong> <span data-text="registration.sessionContext"></span> <span class="registration-reference" data-text="event.sessionReference"></span></p>
+                  <p data-text="registration.validationInstruction"></p>
+                </div>
+              </div>
+
+              <div class="content-panel contacts-box">
+                <h2 class="panel-heading panel-heading-orange">
+                  <img class="doc-icon doc-icon-white" src="assets/icons/phone-call.svg" alt="" aria-hidden="true">
+                  <span data-text="contacts.heading"></span>
+                </h2>
+                <div class="contacts-list">
+                  <div class="contact" data-contact-index="0">
+                    <p class="contact-identity"><strong data-contact="name"></strong><span aria-hidden="true">|</span><em data-contact="role"></em></p>
+                    <div class="contact-links">
+                      <a data-contact-link="phone"><img class="doc-icon doc-icon-orange" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span data-contact="phone"></span></a>
+                      <a data-contact-link="email"><img class="doc-icon doc-icon-orange" src="assets/icons/email.svg" alt="" aria-hidden="true"><span data-contact="email"></span></a>
+                    </div>
+                  </div>
+                  <div class="contact" data-contact-index="1">
+                    <p class="contact-identity"><strong data-contact="name"></strong><span aria-hidden="true">|</span><em data-contact="role"></em></p>
+                    <div class="contact-links">
+                      <a data-contact-link="phone"><img class="doc-icon doc-icon-orange" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span data-contact="phone"></span></a>
+                      <a data-contact-link="email"><img class="doc-icon doc-icon-orange" src="assets/icons/email.svg" alt="" aria-hidden="true"><span data-contact="email"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <footer class="document-footer">
+              <div class="footer-brand">
+                <img class="footer-medical-logo" src="assets/logos/logo-medical-s.png" alt="Logo Medical-S">
+                <span class="sr-only" data-text="footer.brandName"></span>
+              </div>
+              <span class="footer-rule" aria-hidden="true"></span>
+              <p class="footer-copy">
+                <span data-text="footer.resourcesLine"></span>
+                <span data-text="footer.availableLine"></span>
+                <a data-link="footer.website" data-text="footer.website"></a>
+              </p>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <noscript>JavaScript doit être activé pour modifier et prévisualiser le document.</noscript>
+</body>
+</html>
