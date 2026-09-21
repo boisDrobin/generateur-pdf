@@ -1763,35 +1763,20 @@ noscript {
 }
 
 .contacts-callout {
-  position: relative;
-  display: grid;
-  grid-template-columns: 8.8mm 1fr;
-  gap: 5.3mm;
-  align-items: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  padding: 13.3mm 2mm 2mm 9.4mm;
-}
-
-.contacts-callout::before {
-  content: "";
-  position: absolute;
-  top: 13.55mm;
-  left: 6.45mm;
-  width: 0.25mm;
-  height: 8.1mm;
-  background: var(--doc-line);
-}
-
-.contacts-callout-icon {
-  width: 8.8mm;
-  height: 8.8mm;
-  margin-top: 0.1mm;
-  object-fit: contain;
+  padding: 7.2mm 2mm 2mm;
 }
 
 .contacts-callout-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   min-width: 0;
-  margin-top: -0.3mm;
+  text-align: center;
 }
 
 .contacts-callout-title {
