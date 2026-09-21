@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Générateur local de fiches de formation A4">
-  <title>Générateur PDF — Céphalées</title>
-    <link rel="stylesheet" href="css/app.css?v=2.6">
+  <title>Générateur PDF - Formations</title>
+  <link rel="stylesheet" href="css/app.css?v=15">
   <link rel="stylesheet" href="css/print.css" media="print">
-  <script src="js/templates.js?v=2.6" defer></script>
-  <script src="js/storage.js?v=2.6" defer></script>
-  <script src="js/app.js?v=2.6" defer></script>
+  <script src="js/templates.js?v=19" defer></script>
+  <script src="js/storage.js?v=3" defer></script>
+  <script src="js/app.js?v=9" defer></script>
 </head>
 <body>
   <main class="app-shell">
@@ -17,12 +17,12 @@
       <header class="control-header">
         <p class="eyebrow">Générateur PDF</p>
         <h1>Fiche de formation</h1>
-        <p>Modifiez uniquement les données prévues. La mise en page reste verrouillée.</p>
+        <p class="priority-legend">Les champs colorés sont les informations à vérifier en priorité.</p>
       </header>
 
       <div class="template-picker">
-        <label for="template-select">Gabarit sélectionné</label>
-        <select id="template-select" aria-label="Gabarit sélectionné"></select>
+        <label for="template-select">Formation sélectionnée</label>
+        <select id="template-select" aria-label="Formation sélectionnée"></select>
       </div>
 
       <form id="template-form" class="template-form" autocomplete="off"></form>
@@ -37,7 +37,7 @@
       <header class="preview-toolbar">
         <div>
           <p class="eyebrow">Aperçu en direct</p>
-          <h2>Page A4 — portrait</h2>
+          <h2>Page A4 - portrait</h2>
         </div>
         <div class="preview-actions">
           <span id="layout-status" class="layout-status">1 page A4</span>
@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="welcome-banner">
-                  <img class="doc-icon doc-icon-orange" src="assets/icons/cocktail.svg" alt="" aria-hidden="true">
+                  <img class="doc-icon doc-icon-orange welcome-icon" src="assets/icons/cocktail.svg" alt="" aria-hidden="true">
                   <p data-text="course.welcome"></p>
                 </div>
               </div>
@@ -141,6 +141,7 @@
                 <div class="panel-body program-body">
                   <div class="content-group">
                     <h3 data-text="program.analysisHeading"></h3>
+                    <h3 class="program-extra-heading" data-text="program.analysisSecondaryHeading"></h3>
                     <ul data-list="program.analysisItems"></ul>
                   </div>
                   <div class="content-group">
@@ -149,10 +150,14 @@
                   </div>
                   <div class="content-group">
                     <h3 data-text="program.primaryHeading"></h3>
+                    <p class="program-paragraph" data-text="program.primaryText"></p>
                     <ul data-list="program.primaryItems"></ul>
                   </div>
                   <div class="content-group content-group-last">
                     <h3 data-text="program.secondaryHeading"></h3>
+                    <h3 class="program-extra-heading" data-text="program.secondaryExtraHeading"></h3>
+                    <ul data-list="program.secondaryItems"></ul>
+                    <h3 class="program-extra-heading program-closing-heading" data-text="program.closingHeading"></h3>
                   </div>
                 </div>
               </div>
@@ -164,12 +169,15 @@
                 </h2>
                 <div class="panel-body schedule-body">
                   <ol class="schedule-list">
-                    <li><span data-text="schedule.selfAssessment"></span></li>
-                    <li><span data-text="schedule.meeting"></span></li>
+                    <li><img class="schedule-step-icon doc-icon-navy" alt="" aria-hidden="true" hidden><span data-text="schedule.selfAssessment"></span></li>
+                    <li><img class="schedule-step-icon doc-icon-navy" alt="" aria-hidden="true" hidden><span data-text="schedule.meeting"></span></li>
                     <li>
+                      <img class="schedule-step-icon doc-icon-navy" alt="" aria-hidden="true" hidden>
                       <span data-text="schedule.eppIntro"></span>
                       <ul data-list="schedule.eppItems"></ul>
                     </li>
+                    <li class="schedule-extra-step"><img class="schedule-step-icon doc-icon-navy" alt="" aria-hidden="true" hidden><span data-text="schedule.extraStep4"></span></li>
+                    <li class="schedule-extra-step"><img class="schedule-step-icon doc-icon-navy" alt="" aria-hidden="true" hidden><span data-text="schedule.extraStep5"></span></li>
                   </ol>
                 </div>
               </div>
@@ -186,7 +194,7 @@
                   <p class="registration-emphasis" data-text="registration.searchInstruction"></p>
                   <p><strong data-text="registration.actionIntro"></strong> <span class="registration-reference" data-text="event.actionReference"></span> <span data-text="registration.actionAfterReference"></span></p>
                   <p class="registration-details" data-text="registration.detailsInstruction"></p>
-                  <p><strong data-text="registration.sessionLead"></strong> <span data-text="registration.sessionContext"></span> <span class="registration-reference" data-text="event.sessionReference"></span></p>
+                  <p><strong data-text="registration.sessionLead"></strong> <span data-text="registration.sessionContext"></span> <span class="registration-reference" data-text="event.sessionReference"></span><span data-text="registration.sessionAfterReference"></span></p>
                   <p data-text="registration.validationInstruction"></p>
                 </div>
               </div>
@@ -196,20 +204,12 @@
                   <img class="doc-icon doc-icon-white" src="assets/icons/phone-call.svg" alt="" aria-hidden="true">
                   <span data-text="contacts.heading"></span>
                 </h2>
-                <div class="contacts-list">
-                  <div class="contact" data-contact-index="0">
-                    <p class="contact-identity"><strong data-contact="name"></strong><span aria-hidden="true">|</span><em data-contact="role"></em></p>
-                    <div class="contact-links">
-                      <a data-contact-link="phone"><img class="doc-icon doc-icon-orange" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span data-contact="phone"></span></a>
-                      <a data-contact-link="email"><img class="doc-icon doc-icon-orange" src="assets/icons/email.svg" alt="" aria-hidden="true"><span data-contact="email"></span></a>
-                    </div>
-                  </div>
-                  <div class="contact" data-contact-index="1">
-                    <p class="contact-identity"><strong data-contact="name"></strong><span aria-hidden="true">|</span><em data-contact="role"></em></p>
-                    <div class="contact-links">
-                      <a data-contact-link="phone"><img class="doc-icon doc-icon-orange" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span data-contact="phone"></span></a>
-                      <a data-contact-link="email"><img class="doc-icon doc-icon-orange" src="assets/icons/email.svg" alt="" aria-hidden="true"><span data-contact="email"></span></a>
-                    </div>
+                <div class="contacts-callout">
+                  <img class="contacts-callout-icon doc-icon doc-icon-orange" src="assets/icons/phone.svg" alt="" aria-hidden="true">
+                  <div class="contacts-callout-copy">
+                    <p class="contacts-callout-title" data-text="contacts.title"></p>
+                    <p class="contacts-callout-message" data-text="contacts.message"></p>
+                    <p class="contacts-callout-phone" data-text="contacts.phone"></p>
                   </div>
                 </div>
               </div>

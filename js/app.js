@@ -3,6 +3,24 @@
 
   const A4_WIDTH_PX = 793.7008;
   const A4_HEIGHT_PX = 1122.5197;
+  const MODALITY_DEFAULTS = {
+    "classe-virtuelle": {
+      welcome: "Questions, échanges et interactions tout au long de la session",
+      welcomeIcon: "assets/icons/chat.svg",
+      placeIcon: "assets/icons/desktop-computer.svg",
+      legacyWelcome: "Connexion des participants quelques minutes avant le début de la session"
+    }
+  };
+  const priorityFieldPaths = [
+    "event.date",
+    "event.time",
+    "event.venue",
+    "event.address",
+    "event.sessionReference",
+    "speaker.name",
+    "speaker.role",
+    "schedule.meeting"
+  ];
   const templateSelect = document.getElementById("template-select");
   const form = document.getElementById("template-form");
   const documentElement = document.getElementById("document-a4");
@@ -12,6 +30,10 @@
   const resetButton = document.getElementById("reset-button");
   const saveStatus = document.getElementById("save-status");
   const layoutStatus = document.getElementById("layout-status");
+  const heroImage = document.querySelector(".hero-image-frame img");
+  const welcomeIcon = document.querySelector(".welcome-icon");
+  const placeIcon = document.querySelector(".place-item .doc-icon");
+  const compensationMarker = document.querySelector(".compensation-value sup");
   let activeTemplateId = Object.keys(window.templates)[0];
   let activeData;
   let saveTimer;
@@ -32,6 +54,15 @@
       }
     });
     return result;
+  }
+
+  function applyModalityDefaults(template, data) {
+    const defaults = MODALITY_DEFAULTS[template.modality];
+    if (!defaults) return data;
+    if (!data.course) data.course = {};
+    const welcome = String(data.course.welcome || "").trim();
+    if (!welcome || welcome === defaults.legacyWelcome) data.course.welcome = defaults.welcome;
+    return data;
   }
 
   function getValue(object, path) {
@@ -73,6 +104,7 @@
     input.id = id;
     input.dataset.path = field.path;
     input.dataset.valueType = field.type || "text";
+    if (priorityFieldPaths.includes(field.path)) input.classList.add("priority-field");
     const value = getValue(activeData, field.path);
     input.value = field.type === "list" ? value.join("\n") : value;
     wrapper.append(label, input);
@@ -117,6 +149,18 @@
     });
   }
 
+  function renderScheduleStepIcons() {
+    const icons = activeData.schedule && Array.isArray(activeData.schedule.icons) ? activeData.schedule.icons : [];
+    documentElement.querySelectorAll(".schedule-list > li").forEach(function (step, index) {
+      const icon = step.querySelector(".schedule-step-icon");
+      const source = icons[index] || "";
+      icon.hidden = !source;
+      if (source) icon.src = source;
+      else icon.removeAttribute("src");
+      step.classList.toggle("has-step-icon", Boolean(source));
+    });
+  }
+
   function renderDateParts() {
     const parts = String(activeData.event.date || "").trim().split(/\s+/).filter(Boolean);
     const values = {
@@ -130,23 +174,26 @@
     });
   }
 
-  function renderComputedText() {
-    documentElement.querySelector("[data-computed='dpcReference']").textContent =
-      activeData.event.actionReference + " - S " + activeData.event.sessionReference;
+  function renderTemplateAssets() {
+    const template = window.templates[activeTemplateId];
+    const modalityDefaults = MODALITY_DEFAULTS[template.modality] || {};
+    documentElement.dataset.template = template.id;
+    documentElement.dataset.modality = template.modality || "presentiel";
+    documentElement.setAttribute("aria-label", "Fiche " + template.name + " au format A4");
+    heroImage.src = template.coverImage;
+    heroImage.alt = template.imageAlt || "";
+    welcomeIcon.src = template.welcomeIcon || modalityDefaults.welcomeIcon || "assets/icons/cocktail.svg";
+    placeIcon.src = template.placeIcon || modalityDefaults.placeIcon || "assets/icons/placeholder.svg";
   }
 
-  function renderContacts() {
-    documentElement.querySelectorAll("[data-contact-index]").forEach(function (container) {
-      const person = activeData.contacts.people[Number(container.dataset.contactIndex)];
-      container.querySelectorAll("[data-contact]").forEach(function (element) {
-        const key = element.dataset.contact;
-        element.textContent = person[key];
-      });
-      const phone = container.querySelector("[data-contact-link='phone']");
-      const email = container.querySelector("[data-contact-link='email']");
-      phone.href = "tel:" + person.phone.replace(/[^+\d]/g, "");
-      email.href = "mailto:" + person.email;
-    });
+  function renderComputedText() {
+    const actionReference = String(activeData.event.actionReference || "").trim();
+    const sessionReference = String(activeData.event.sessionReference || "").trim();
+    let reference = actionReference;
+    if (actionReference && sessionReference) reference += " - S " + sessionReference;
+    if (!actionReference && sessionReference) reference = "S " + sessionReference;
+    documentElement.querySelector("[data-computed='dpcReference']").textContent = reference;
+    compensationMarker.hidden = !String(activeData.event.compensation || "").trim();
   }
 
   function updateOverflowStatus() {
@@ -159,11 +206,12 @@
   }
 
   function renderPreview() {
+    renderTemplateAssets();
     renderTextBindings();
     renderDateParts();
     renderLists();
+    renderScheduleStepIcons();
     renderComputedText();
-    renderContacts();
     updateOverflowStatus();
   }
 
@@ -192,7 +240,7 @@
     activeTemplateId = templateId;
     const template = window.templates[templateId];
     const saved = window.TemplateStorage.load(templateId);
-    activeData = deepMerge(template.data, saved);
+    activeData = applyModalityDefaults(template, deepMerge(template.data, saved));
     renderForm();
     renderPreview();
     saveStatus.textContent = saved ? "Données restaurées" : "Données originales";
@@ -200,7 +248,8 @@
 
   function resetTemplate() {
     window.TemplateStorage.clear(activeTemplateId);
-    activeData = clone(window.templates[activeTemplateId].data);
+    const template = window.templates[activeTemplateId];
+    activeData = applyModalityDefaults(template, clone(template.data));
     renderForm();
     renderPreview();
     saveStatus.textContent = "Données originales restaurées";

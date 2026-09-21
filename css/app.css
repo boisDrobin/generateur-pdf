@@ -83,7 +83,7 @@ select {
 
 .eyebrow {
   margin: 0 0 5px;
-  color: #967022;
+  color: #f07631;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.13em;
@@ -119,8 +119,24 @@ select {
   max-width: 325px;
   margin: 8px 0 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 10px;
   line-height: 1.45;
+}
+
+.control-header > .priority-legend {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.priority-legend::before {
+  content: "";
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  background: #fff3eb;
+  border: 1px solid #f3b184;
+  border-radius: 3px;
 }
 
 .template-picker {
@@ -175,6 +191,18 @@ select {
 .form-field textarea:focus {
   border-color: #8d6b2b;
   box-shadow: 0 0 0 3px rgb(185 130 37 / 14%);
+}
+
+.template-form .form-field input.priority-field,
+.template-form .form-field textarea.priority-field {
+  background: #fff3eb;
+  border-color: #f3b184;
+}
+
+.template-form .form-field input.priority-field:focus,
+.template-form .form-field textarea.priority-field:focus {
+  border-color: #f07631;
+  box-shadow: 0 0 0 2px rgba(240, 118, 49, 0.12);
 }
 
 .template-form {
@@ -1519,6 +1547,25 @@ noscript {
   line-height: 1.12;
 }
 
+.content-group .program-extra-heading:empty {
+  display: none;
+}
+
+.program-closing-heading {
+  margin-top: 0.85mm;
+}
+
+.program-paragraph {
+  margin-bottom: 0.85mm !important;
+  font-size: 7.75pt;
+  font-weight: 500;
+  line-height: 1.13;
+}
+
+.program-paragraph:empty {
+  display: none;
+}
+
 .content-group ul {
   padding-left: 3mm;
 }
@@ -1581,8 +1628,24 @@ noscript {
   line-height: 1;
 }
 
+.schedule-step-icon {
+  display: none;
+}
+
 .schedule-list > li:last-child {
   margin-bottom: 0;
+}
+
+.schedule-extra-step:has(> span:empty) {
+  display: none;
+}
+
+.schedule-list > li:nth-child(3):has(~ .schedule-extra-step > span:empty) {
+  margin-bottom: 0;
+}
+
+.schedule-list > li:nth-child(3) > span {
+  white-space: pre-line;
 }
 
 .schedule-list ul {
@@ -1615,9 +1678,9 @@ noscript {
   top: 243mm;
   left: 11.5mm;
   display: grid;
-  grid-template-columns: 96.9mm 85.4mm;
-  gap: 4.7mm;
-  width: 187mm;
+  grid-template-columns: 109.9mm 72.8mm;
+  gap: 4.2mm;
+  width: 186.9mm;
   height: 38.8mm;
 }
 
@@ -1650,12 +1713,12 @@ noscript {
 .registration-copy {
   height: 100%;
   overflow: hidden;
-  padding: 9.75mm 0.2mm 2.2mm 4mm;
+  padding: 9.75mm 0.2mm 2.2mm 4.3mm;
   border: 0;
   border-radius: 0;
-  font-size: 6.45pt;
+  font-size: 7.5pt;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.1;
 }
 
 .registration-copy p {
@@ -1699,63 +1762,62 @@ noscript {
   height: 4.6mm;
 }
 
-.contacts-list {
-  padding: 10.7mm 5.6mm 2.5mm 5.8mm;
-}
-
-.contact {
-  margin: 0;
-  padding-left: 3.8mm;
-  border-left: 0.35mm solid var(--doc-line);
-}
-
-.contact + .contact {
-  margin-top: 5mm;
-}
-
-.contact-identity {
-  display: flex;
-  align-items: baseline;
-  gap: 1.25mm;
-  margin-bottom: 2.2mm !important;
-  font-size: 6.65pt;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.contact-identity strong {
-  font-weight: 700;
-}
-
-.contact-identity em {
-  color: var(--doc-orange);
-  font-style: normal;
-  font-weight: 700;
-}
-
-.contact-links {
+.contacts-callout {
+  position: relative;
   display: grid;
-  grid-template-columns: 24mm 1fr;
-  gap: 2mm;
+  grid-template-columns: 8.8mm 1fr;
+  gap: 5.3mm;
+  align-items: start;
+  height: 100%;
+  padding: 13.3mm 2mm 2mm 9.4mm;
 }
 
-.contact-links a {
-  display: flex;
-  align-items: center;
-  gap: 1.2mm;
+.contacts-callout::before {
+  content: "";
+  position: absolute;
+  top: 13.55mm;
+  left: 6.45mm;
+  width: 0.25mm;
+  height: 8.1mm;
+  background: var(--doc-line);
+}
+
+.contacts-callout-icon {
+  width: 8.8mm;
+  height: 8.8mm;
+  margin-top: 0.1mm;
+  object-fit: contain;
+}
+
+.contacts-callout-copy {
   min-width: 0;
+  margin-top: -0.3mm;
+}
+
+.contacts-callout-title {
+  margin: 0 0 2.9mm !important;
   color: var(--doc-navy);
-  font-size: 6.45pt;
+  font-size: 10pt;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.contacts-callout-message {
+  width: 45mm;
+  margin: 0 0 2.4mm !important;
+  color: var(--doc-navy);
+  font-size: 8pt;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.contacts-callout-phone {
+  margin: 0 !important;
+  color: var(--doc-orange);
+  font-size: 13pt;
   font-weight: 700;
   line-height: 1;
-  text-decoration: none;
   white-space: nowrap;
-}
-
-.contact-links img {
-  flex: 0 0 4mm;
-  width: 4mm;
-  height: 4mm;
 }
 
 .document-footer {
@@ -1807,4 +1869,211 @@ noscript {
   color: var(--doc-orange);
   font-weight: 700;
   text-decoration: none;
+}
+
+/* Ajustements isolés du gabarit Dermatologie. */
+.document-a4[data-template="dermatologie"] .place-item > p {
+  max-width: 57mm;
+  font-size: 6.1pt;
+  white-space: pre-line;
+}
+
+.document-a4[data-template="dermatologie"] .objective-block {
+  margin-top: 4.4mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique"] .objective-block {
+  margin-top: 4.4mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique"] .program-body {
+  padding: 9.6mm 3.8mm 2mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique"] .program-body .content-group {
+  margin-bottom: 1.25mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique"] .program-body h3 {
+  margin-bottom: 0.45mm;
+  font-size: 7.65pt;
+  line-height: 1.06;
+}
+
+.document-a4[data-template="dermatologie-pediatrique"] .program-body li {
+  margin-bottom: 0.05mm;
+  font-size: 7.15pt;
+  line-height: 1.05;
+}
+
+.document-a4[data-template="suivi-preventif-enfant"] .objective-block:has([data-text="course.objective"]:empty) {
+  visibility: hidden;
+}
+
+.document-a4[data-template="suivi-preventif-enfant"] .objective-block {
+  margin-top: 4.7mm;
+}
+
+.document-a4[data-template="suivi-preventif-enfant-virtuel"] .objective-block {
+  margin-top: 4.7mm;
+}
+
+.document-a4[data-template="suivi-preventif-enfant-virtuel"] .program-body h3,
+.document-a4[data-template="suivi-preventif-enfant-virtuel"] .program-body li {
+  font-size: 8.75pt;
+}
+
+.document-a4[data-template="exposition-ecrans-virtuelle"] .program-body li {
+  margin-bottom: 0.4mm;
+}
+
+.document-a4[data-template="exposition-ecrans-virtuelle"] .program-body li:last-child {
+  margin-bottom: 0;
+}
+
+.document-a4[data-template="exposition-ecrans-virtuelle"] .program-body h3:has(+ ul:not(:empty)) {
+  margin-bottom: 1.05mm;
+}
+
+.document-a4[data-template="exposition-ecrans-virtuelle"] .program-body .content-group:has(> ul:not(:empty)) + .content-group > h3:first-child {
+  margin-top: 0.7mm;
+}
+
+.document-a4[data-template="suivi-preventif-enfant"] .speaker-band > div > span {
+  white-space: pre-line;
+}
+
+.document-a4[data-template="desir-grossesse"] .place-item > p {
+  max-width: 52mm;
+  white-space: pre-line;
+}
+
+.document-a4[data-template="desir-grossesse"] .objective-block {
+  margin-top: 6.6mm;
+}
+
+.document-a4[data-template="desir-grossesse"] .program-body .content-group:first-child > h3:first-child {
+  margin-bottom: 1.3mm;
+}
+
+.document-a4[data-template="vertiges"] .program-body li {
+  margin-bottom: 3.85mm;
+}
+
+.document-a4[data-template="vertiges"] .objective-block {
+  margin-top: 7.7mm;
+}
+
+.document-a4[data-template="tdah"] .objective-block {
+  margin-top: 7.4mm;
+}
+
+.document-a4[data-template="tdah-virtuelle"] .objective-block {
+  margin-top: 7.4mm;
+}
+
+.document-a4[data-template="tdah-virtuelle"] .program-body li {
+  margin-bottom: 3.5mm;
+  font-size: 8.75pt;
+}
+
+.document-a4[data-template="tdah-virtuelle"] .program-body li:last-child {
+  margin-bottom: 0;
+}
+
+.document-a4[data-template="dermatoscopie"] .objective-block {
+  margin-top: 6.6mm;
+}
+
+.document-a4[data-template="dermatoscopie-virtuelle"] .objective-block {
+  margin-top: 6.6mm;
+}
+
+.document-a4[data-modality="classe-virtuelle"] .place-item > p {
+  text-transform: none;
+}
+
+.document-a4[data-template="tsa"] .speaker-band > div > span {
+  white-space: pre-line;
+}
+
+.document-a4[data-template="tsa"] .objective-block {
+  margin-top: 7.4mm;
+}
+
+.document-a4[data-template="tsa"] .program-body li {
+  margin-bottom: 2.1mm;
+}
+
+.document-a4[data-template="trouble-respiratoire-enfant"] .objective-block {
+  margin-top: 3.6mm;
+}
+
+.document-a4[data-template="endometriose"] .objective-block {
+  margin-top: 6.6mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .objective-block:has([data-text="course.objective"]:empty) {
+  visibility: hidden;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .objective-block {
+  margin-top: 2.4mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .speaker-band > div > span {
+  white-space: pre-line;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .program-body {
+  padding: 8.8mm 3mm 1.4mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .program-body .content-group {
+  margin-bottom: 0.6mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .program-body h3 {
+  margin-bottom: 0.2mm;
+  font-size: 7.25pt;
+  line-height: 1.03;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .program-body li {
+  margin-bottom: 0.4mm;
+  font-size: 7.3pt;
+  line-height: 1.20;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .program-closing-heading {
+  margin-top: 0.4mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .schedule-list > li {
+  margin-bottom: 4.2mm;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .schedule-list > li:last-child {
+  margin-bottom: 0;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .schedule-list > li.has-step-icon::before {
+  display: none;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .schedule-list > li.has-step-icon {
+  display: flex;
+  align-items: center;
+  gap: 2.8mm;
+  padding-left: 0;
+}
+
+.document-a4[data-template="dermatologie-pediatrique-2"] .schedule-list > li.has-step-icon > .schedule-step-icon {
+  position: static;
+  display: block;
+  flex: 0 0 7.4mm;
+  width: 7.4mm;
+  height: 7.4mm;
+  object-fit: contain;
+  object-position: center;
 }
