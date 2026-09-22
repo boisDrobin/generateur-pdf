@@ -41,9 +41,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à remplir et retourner par e-mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 17 Septembre 2026 de 20h00 à 23h00 à la Brasserie Jules d’Amiens.",
-      eppIntro: "3 mois après la formation présentielle,\n2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -120,9 +120,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à remplir et retourner par e-mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 24 Septembre 2026 de 20h00 à 23h00 à l’Hôtel Océania - Clermont-Ferrand.",
-      eppIntro: "3 mois après la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -203,9 +203,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation à remplir et retourner par mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation à compléter avant la réunion.",
       meeting: "Réunion présentielle du 29 Septembre 2026 de 20h à 23h à METZ.",
-      eppIntro: "EPP en e-learning à réaliser dans le mois après la formation :",
+      eppIntro: "EPP en e-learning à réaliser après la formation en présentielle :",
       eppItems: ["Études des vignettes clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -289,9 +289,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à remplir et retourner par e-mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 30 Septembre 2026 de 20h00 à 23h00 à l’Hôtel Mercure Centre Gare - NANCY.",
-      eppIntro: "3 mois après la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -369,9 +369,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation ainsi que les grilles d'audit servant au 1er tour d'EPP à remplir et retourner avant la classe virtuelle.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la visioconférence.",
       meeting: "Réunion en classe virtuelle (visioconférence) du Mercredi 30 Septembre 2026 de 20h à 23h.",
-      eppIntro: "3 mois après la classe virtuelle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation en classe virtuelle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -447,9 +447,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation ainsi que les grilles d'audit servant au 1er tour d'EPP à remplir et retourner avant la classe virtuelle.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la visioconférence.",
       meeting: "Réunion en classe virtuelle (visioconférence) du Mardi 17 Novembre 2026 de 20h à 23h.",
-      eppIntro: "3 mois après la classe virtuelle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation en classe virtuelle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -525,9 +525,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à remplir et retourner par e-mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 1er Octobre de 20h00 à 23h00 à Montpellier.",
-      eppIntro: "3 mois après la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -604,9 +604,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation ainsi que la grille d’audit à remplir et retourner par e-mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 06 Octobre 2026 de 20h00 à 23h00 au Novotel Nice Arénas Aéroport.",
-      eppIntro: "3 mois après la formation, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -687,9 +687,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation ainsi que les grilles d'audit servant au 1er tour d'EPP à remplir et retourner avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 14 Octobre 2026 de 20h00 à 23h00 à l’Hôtel & Spa Le Splendid.",
-      eppIntro: "3 mois après la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -763,9 +763,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation ainsi que les grilles d'audit servant au 1er tour d'EPP à remplir et retourner avant la classe virtuelle.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la visioconférence.",
       meeting: "Réunion en classe virtuelle (visioconférence) du Jeudi 24 Septembre 2026 de 20h à 23h.",
-      eppIntro: "3 mois après la formation en classe virtuelle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation en classe virtuelle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -843,9 +843,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation à remplir et retourner par mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation à compléter avant la réunion.",
       meeting: "Réunion présentielle du 15 Octobre 2026 de 20h00 à 23h00 au Château Le Clos de la Ribaudière.",
-      eppIntro: "EPP en e-learning à réaliser dans le mois après la formation :",
+      eppIntro: "EPP en e-learning à réaliser après la formation en présentielle:",
       eppItems: ["Études des vignettes clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -917,9 +917,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation à remplir et retourner par mail avant la visioconférence.",
+      selfAssessment: "Questionnaire d’autoévaluation à compléter avant la visioconférence.",
       meeting: "Réunion en classe virtuelle (visioconférence) du 17 Septembre 2026 de 20h00 à 23h00.",
-      eppIntro: "EPP en e-learning à réaliser dans le mois après la formation :",
+      eppIntro: "EPP en e-learning à réaliser après la formation en visioconférence :",
       eppItems: ["Études des vignettes clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -1002,9 +1002,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation ainsi que la grille d'audit servant au 1er tour d'EPP à remplir et retourner avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 4 Novembre 2026 de 20h00 à 23h00 à Angers.",
-      eppIntro: "3 mois après la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -1092,9 +1092,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à remplir et retourner par e-mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 17 Novembre 2026 de 20h00 à 23h00 à l’Hôtel Océania - Clermont-Ferrand.",
-      eppIntro: "3 mois après la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
@@ -1175,9 +1175,9 @@
     },
     schedule: {
       heading: "DÉROULÉ DE LA FORMATION",
-      selfAssessment: "Questionnaire d’autoévaluation ainsi que la grille d’audit à remplir et retourner par e-mail avant la réunion.",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
       meeting: "Réunion présentielle du 17 Novembre de 20h00 à 23h00 à Montpellier.",
-      eppIntro: "3 mois après la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
       eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
     },
     registration: {
