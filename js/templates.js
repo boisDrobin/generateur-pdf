@@ -1162,7 +1162,7 @@
       ],
       conductHeading: "2 - Comment prescrire les antidépresseurs ?",
       conductItems: [
-        "Connaitre les différentes classes thérapeutiques pour faire son choix",
+        "Connaitre les différentes classes thérapeutiques",
         "Connaitre les mécanismes d'action",
         "Gérer les effets indésirables",
         "Réfléchir au x stratégies de gestion de la prescription",
