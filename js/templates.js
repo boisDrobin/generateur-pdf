@@ -1133,10 +1133,10 @@
       website: "www.mondpc.fr"
     },
     event: {
-      date: "Jeudi 05 Février 2026",
+      date: "Mercredi 20 Janvier 2027",
       time: "20h00 - 23h00",
       venue: "NOVOTEL BORDEAUX\nCENTRE GARE SAINT JEAN",
-      address: "28-30 RUE DE TAUZIA\n33800 BORDEAUX\nPARKING SUR PLACE",
+      address: "28-30 RUE DE TAUZIA\n33800 BORDEAUX",
       actionReference: "69202425111",
       sessionReference: "26.003",
       compensation: "225 €",
