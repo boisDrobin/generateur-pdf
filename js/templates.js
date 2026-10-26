@@ -1124,6 +1124,97 @@
     }
   };
 
+  const troublesAnxiodepressifsData = {
+    masthead: "FORMATION DPC EN EPP",
+    dpc: {
+      number: "N° 6920",
+      agencyLine: "Organisme enregistré par l'Agence nationale du DPC",
+      offerLine: "Retrouvez toute l'offre du DPC sur",
+      website: "www.mondpc.fr"
+    },
+    event: {
+      date: "Jeudi 05 Février 2026",
+      time: "20h00 - 23h00",
+      venue: "NOVOTEL BORDEAUX\nCENTRE GARE SAINT JEAN",
+      address: "28-30 RUE DE TAUZIA\n33800 BORDEAUX\nPARKING SUR PLACE",
+      actionReference: "69202425111",
+      sessionReference: "26.003",
+      compensation: "225 €",
+      compensationNote: "*Dans la limite du forfait disponible"
+    },
+    speaker: {
+      intro: "",
+      name: "Dr Guillaume CAMELOT",
+      role: "Psychiatre libéral BOULIAC - Formateur - Expert en santé mentale"
+    },
+    course: {
+      title: "Les troubles anxiodépressifs : bon usage des médicaments",
+      objective: "Identifier les indications des antidépresseurs, choisir et sécuriser leur prescription chez l’adulte et intégrer le traitement dans une stratégie thérapeutique globale.",
+      welcome: "Accueil des participants et cocktail dinatoire à partir de 19h30"
+    },
+    program: {
+      heading: "PROGRAMME",
+      analysisHeading: "1 - Indications de prescription des antidépresseurs :",
+      analysisSecondaryHeading: "",
+      analysisItems: [
+        "Identifier les principales indications de prescription",
+        "Savoir prendre la décision de prescrire chez l'adulte"
+      ],
+      conductHeading: "2 - Comment prescrire les antidépresseurs ?",
+      conductItems: [
+        "Connaitre les différentes classes thérapeutiques pour faire son choix",
+        "Connaitre les mécanismes d'action",
+        "Gérer les effets indésirables",
+        "Réfléchir au x stratégies de gestion de la prescription",
+        "Inscrire l'antidépresseur dans un plan thérapeutique global"
+      ],
+      primaryHeading: "3 - Situations cliniques et Discussion :",
+      primaryText: "",
+      primaryItems: [
+        "Comment proposer un traitement à son patient ?",
+        "Travailler les résistances",
+        "Psychologie de la prescription",
+        "Ce que l'on ne vous dit pas sur les antidépresseurs",
+        "La place du psychiatre dans la stratégie thérapeutique"
+      ],
+      secondaryHeading: "",
+      secondaryExtraHeading: "",
+      secondaryItems: []
+    },
+    schedule: {
+      heading: "DÉROULÉ DE LA FORMATION",
+      selfAssessment: "Questionnaire d’autoévaluation et grille d’audit à compléter avant la réunion.",
+      meeting: "Réunion présentielle du 05/02 de 20h00 à 23h00 au Novotel Bordeaux Centre Gare Saint Jean.",
+      eppIntro: "A l'issu de la formation présentielle, 2ème tour d'EPP à réaliser :",
+      eppItems: ["Audit Clinique", "Questionnaire d’évaluation", "Votre avis sur la formation"]
+    },
+    registration: {
+      heading: "INSCRIPTION OBLIGATOIRE",
+      accountLabel: "Connexion à votre compte",
+      accountUrl: "https://www.agencedpc.fr/professionnel/",
+      searchInstruction: "Cliquez sur \"Actions DPC\" puis sur \"Rechercher une action / S’inscrire\".",
+      actionIntro: "Entrez la référence de l’action :",
+      actionAfterReference: "à gauche de l’écran.",
+      detailsInstruction: "Cliquez sur \"Rechercher\" puis \"Détail\" et “liste des sessions”.",
+      sessionLead: "Cliquez sur l’onglet “S’inscrire”",
+      sessionContext: "de la session concernée",
+      sessionAfterReference: "",
+      validationInstruction: "Puis validez votre inscription."
+    },
+    contacts: {
+      heading: "CONTACTEZ-NOUS",
+      title: "Une question ?",
+      message: "Un membre de notre équipe vous répond au",
+      phone: "04 23 46 00 37"
+    },
+    footer: {
+      brandName: "MEDICAL-S",
+      resourcesLine: "Programme de la formation / CGV / Règlement Intérieur",
+      availableLine: "disponible sur :",
+      website: "www.medical-s.org"
+    }
+  };
+
   const endometrioseData = {
     masthead: "FORMATION DPC EN EPP",
     dpc: {
@@ -1618,6 +1709,23 @@
     { path: "program.primaryItems", label: "Thérapeutique — une ligne par point", type: "list", rows: 5 }
   ];
 
+  const troublesAnxiodepressifsFormSections = formSections.map(function (section) {
+    return {
+      title: section.title,
+      fields: section.fields.map(function (field) { return Object.assign({}, field); })
+    };
+  });
+
+  troublesAnxiodepressifsFormSections.find(function (section) { return section.title === "Intervenante"; }).title = "Intervenant";
+  troublesAnxiodepressifsFormSections.find(function (section) { return section.title === "Programme"; }).fields = [
+    { path: "program.analysisHeading", label: "1. Indications — titre", type: "textarea", rows: 2 },
+    { path: "program.analysisItems", label: "1. Indications — une ligne par point", type: "list", rows: 3 },
+    { path: "program.conductHeading", label: "2. Prescription — titre", type: "textarea", rows: 2 },
+    { path: "program.conductItems", label: "2. Prescription — une ligne par point", type: "list", rows: 7 },
+    { path: "program.primaryHeading", label: "3. Situations cliniques — titre", type: "textarea", rows: 2 },
+    { path: "program.primaryItems", label: "3. Situations cliniques — une ligne par point", type: "list", rows: 7 }
+  ];
+
   const endometrioseFormSections = formSections.map(function (section) {
     return {
       title: section.title,
@@ -1787,6 +1895,15 @@ window.templates = {
     imageAlt: "Consultation pédiatrique pour un trouble respiratoire aigu",
     data: troubleRespiratoireEnfantData,
     formSections: troubleRespiratoireEnfantFormSections
+  },
+
+  troublesAnxiodepressifs: {
+    id: "troubles-anxiodepressifs",
+    name: "📍 Troubles anxiodépressifs",
+    coverImage: "assets/images/couverture-troubles-anxiodepressifs.jpg",
+    imageAlt: "Consultation médicale consacrée aux troubles anxiodépressifs",
+    data: troublesAnxiodepressifsData,
+    formSections: troublesAnxiodepressifsFormSections
   },
 
   tsa: {
