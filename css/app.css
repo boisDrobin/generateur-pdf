@@ -1994,6 +1994,20 @@ noscript {
   margin-top: 3.6mm;
 }
 
+.document-a4[data-template="troubles-anxiodepressifs"] .place-item h2 {
+  margin-top: 2.6mm;
+  font-size: 8.5pt;
+  white-space: pre-line;
+}
+
+.document-a4[data-template="troubles-anxiodepressifs"] .place-item > p {
+  max-width: 56mm;
+  margin-top: 0.7mm;
+  font-size: 6.2pt;
+  line-height: 1.05;
+  white-space: pre-line;
+}
+
 .document-a4[data-template="endometriose"] .objective-block {
   margin-top: 6.6mm;
 }
