@@ -1333,6 +1333,13 @@ noscript {
   white-space: nowrap;
 }
 
+.document-a4[data-modality="presentiel"] .place-item h2 {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  text-align: center;
+}
+
 .place-item > p {
   max-width: 38mm;
   margin-top: 0.9mm;
